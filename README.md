@@ -27,7 +27,7 @@ Used the while loop, conditions, print function and functions I create
 
 2. **🚀 Running the Project:**
    - You can use the command ```bash python main.py ``` in the main directory.
-   - If you use Pycharm <img alt="PyCharm" src="https://img.shields.io/badge/PyCharm-EFE50C.svg?&style=for-the-badge&logo=pycharm&logoColor=000" />&nbsp; u can run programm pressing shift + F10.
+   - If you use Pycharm [![Pycharm](https://img.shields.io/badge/PyCharm-EFE50C.svg?&style=for-the-badge&logo=pycharm&logoColor=000)](https://www.jetbrains.com/pycharm/) you can run programm pressing shift + F10.
 
 </details>
 
