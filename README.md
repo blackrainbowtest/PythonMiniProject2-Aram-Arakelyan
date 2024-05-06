@@ -8,11 +8,29 @@ The player should roll two dice. If the sum of both of them is 7 or 11 the playe
 
 <details><summary>### 🚀 Key Features:</summary>
 
-The program is written only on Python
-Used “Random” library
+The program is written only on Python<br>
+Used “Random” library<br>
 Used the while loop, conditions, print function and functions I create
 
 </details>
+
+
+<details><summary>### 📚 Usage:</summary>
+
+
+1. **💻 Installation:**
+- Clone the repository to your local machine:
+    ```bash
+    git clone https://github.com/blackrainbowtest/PythonMiniProject2-Aram-Arakelyan.git
+    ```
+- Alternatively, you can click the "Code" button at the top of the repository page and select "Download ZIP" to download the repository as a ZIP file.
+
+2. **🚀 Running the Project:**
+   - You can use the command ```bash python main.py ``` in the main directory.
+   - If you use Pycharm <img alt="PyCharm" src="https://img.shields.io/badge/PyCharm-EFE50C.svg?&style=for-the-badge&logo=pycharm&logoColor=000" />&nbsp; u can run programm pressing shift + F10.
+
+</details>
+
 
 ### 🤝 Contribution:
 
