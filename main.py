@@ -1,10 +1,9 @@
-# if 7 or 11 PLAYER win
-# if 2 or 3 or 12 CASINO win
-# if in first roll 4, 5, 6, 8, 9, 10 is GOAL
-# if roll 7 PLAYER loes
-# if roll GOAL PLAYER win
-
 import random
+
+
+PLAYER_WIN = [7, 11]
+CASINO_WIN = [2, 3, 12]
+PLAYER_LOSE = [7]
 
 
 # Rolling Craps
@@ -16,18 +15,9 @@ def RollCraps():
 
 def StepRollResult():
     firstDice, secondDice = RollCraps()
-    return {'message': f"The sum of dice is {firstDice} + {secondDice} = {firstDice + secondDice}",
-            'first': firstDice,
-            'second': secondDice,
-            'result': firstDice + secondDice}
-
-
-def StepWinLogic(rollData, isFirstBool=True):
-    print(rollData, isFirstBool)
-
-
-def GameRooles():
-    print()
+    message = f"The sum of dice is {firstDice} + {secondDice} = {firstDice + secondDice}"
+    result = firstDice + secondDice
+    return firstDice, secondDice, result, message
 
 
 def Tutorial():
@@ -44,9 +34,57 @@ def Tutorial():
         answer = input("Choose one of answers Y/N")
 
 
+def GameWinnerLogic(isFirstStep, goal):
+    status = False
+    player = False
+    casino = False
+    playerGoal = goal
+    firstDice, secondDice, result, message = StepRollResult()
+    print(message)
+    if isFirstStep:
+        if result in PLAYER_WIN:
+            status = True
+            player = True
+        elif result in CASINO_WIN:
+            status = True
+            casino = True
+        else:
+            print(f"Now your goal number is {result}")
+            playerGoal = result
+    else:
+        if result in PLAYER_LOSE:
+            status = True
+            casino = True
+        elif result == playerGoal:
+            status = True
+            player = True
+    return status, player, casino, playerGoal
+
+
+def GameStepLogic():
+    isFirstStep = True  # Начинаем с первого шага
+    playerGoal = 0
+    status, player, casino, goal = GameWinnerLogic(isFirstStep, playerGoal)
+    playerGoal = goal
+
+    while not status:
+        # Делаем следующий шаг в игре, возможно, здесь должны быть действия игры
+        isFirstStep = False  # Следующие шаги уже не являются первыми
+        status, player, casino, goal = GameWinnerLogic(isFirstStep, playerGoal)
+        playerGoal = goal
+
+    if player:
+        print("You wins!")
+    elif casino:
+        print("You lose!")
+    else:
+        print("Game continues...")
+
+
 def GameStart(devMod=False):
     if not devMod:
         Tutorial()
+    GameStepLogic()
 
 
 GameStart()
